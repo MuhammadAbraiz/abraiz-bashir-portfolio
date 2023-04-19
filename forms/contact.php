@@ -5,7 +5,7 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
-    $to = 'youremail@example.com'; // Replace with your own email address
+    $to = 'muhammadabraiz489@gmail.com'; // Replace with your own email address
 
     $headers = "From: $email\r\n";
     $headers .= "Reply-To: $email\r\n";
