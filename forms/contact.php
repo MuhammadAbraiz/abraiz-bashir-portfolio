@@ -1,28 +1,17 @@
 <?php
-
-if (isset($_POST['submit'])) {
+if(isset($_POST['submit'])){
+    $to = "muhammadabraiz489@gmail.com"; // your email address
+    $subject = $_POST['subject'];
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $subject = $_POST['subject'];
     $message = $_POST['message'];
-    $to = 'muhammadabraiz489@gmail.com'; // Replace with your own email address
 
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/html\r\n";
+    $body = "From: $name\n\nEmail: $email\n\nMessage:\n$message";
 
-    $email_body = "<h3>Contact Details:</h3>
-        <p><strong>Name:</strong> $name</p>
-        <p><strong>Email:</strong> $email</p>
-        <p><strong>Subject:</strong> $subject</p>
-        <p><strong>Message:</strong> $message</p>";
+    // send email
+    mail($to, $subject, $body);
 
-    // Send email
-    if (mail($to, $subject, $email_body, $headers)) {
-        echo "success";
-    } else {
-        echo "error";
-    }
+    // show success message
+    echo "<div class='alert alert-success'>Your message has been sent. Thank you!</div>";
 }
-
 ?>
